@@ -19,10 +19,15 @@ SonarQube is an open-source static testing analysis software, it is used by deve
 3. Install Postgres database   
 
   ```sh 
-  sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'  
-  wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-  sudo apt-get update
-  sudo apt-get -y install postgresql
+  sudo apt install curl ca-certificates
+  sudo install -d /usr/share/postgresql-common/pgdg
+  sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc
+
+  sudo sh -c 'echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+  sudo apt update
+  sudo apt -y install postgresql
+
 
   sudo systemctl status postgresql
   ```
@@ -53,7 +58,7 @@ SonarQube is an open-source static testing analysis software, it is used by deve
 `check point`: You should see postgres is running on 5432
 ```
 apt install net-tools
-netstat plunt  # check whether port is listening or not!
+netstat -plunt | grep -i listen  # check whether port is listening or not!
 ```
 
 `Source: https://docs.sonarsource.com/sonarqube/latest/setup-and-upgrade/installation-requirements/server-host/ `
