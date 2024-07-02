@@ -94,8 +94,8 @@ Add below code at the end of file - shift + g
   ```sh 
   cd /opt
   wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.10.61524.zip
-  unzip sonarqube-9.9.5.90363.zip
-  mv sonarqube-9.9.5.90363/ sonarqube
+  unzip sonarqube-8.9.10.61524.zip
+  mv sonarqube-8.9.10.61524/ sonarqube
 
   ```
 
