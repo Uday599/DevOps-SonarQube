@@ -49,7 +49,7 @@ SonarQube is an open-source static testing analysis software, it is used by deve
   GRANT ALL PRIVILEGES ON DATABASE sonarqube to sonar;
   ``` 
 
-6. Restart postgres database to take latest changes effect 
+6. Restart postgres database to take latest changes effect, exit from postgress user and run as roor
 
   ```sh 
   systemctl restart postgresql 
