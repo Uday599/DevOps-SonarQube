@@ -99,7 +99,7 @@ Add below code at the end of file - shift + g
 
   ```
 
-1. Update sonar.properties with below information 
+2. Update sonar.properties with below information 
 
   ```sh
   cd sonarqube
@@ -149,19 +149,22 @@ Add below code at the end of file - shift + g
   EOL
   ```
 
-1. Add sonar user and grant ownership to /opt/sonarqube directory 
+3. Add sonar user and grant ownership to /opt/sonarqube directory 
 
   ```sh 
   useradd -d /opt/sonarqube sonar
   chown -R sonar:sonar /opt/sonarqube
   ```
 
-1. Reload the demon and start sonarqube service 
+4. Reload the demon and start sonarqube service 
   ```sh 
   systemctl daemon-reload 
   systemctl start sonarqube.service 
   ```
-
+5. Check port , 9000 should be listening
+  ```sh
+  netstat -plunt | grep -i lisen
+  ```
 
 ## 🧹 CleanUp  
 
